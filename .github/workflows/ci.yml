@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main, "feat/**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  go:
+    name: Go (vet, test)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: server/go.mod
+          cache-dependency-path: server/go.sum
+      # v0.1 has no end-to-end encryption, so mautrix is built without libolm (-tags nocrypto).
+      # The integration tests need the local stack and skip themselves here (AGENTSTUDIO_IT unset).
+      - run: go vet -tags nocrypto ./...
+      - run: go test -tags nocrypto ./...
+
+  typescript:
+    name: TypeScript (typecheck, unit tests)
+    runs-on: ubuntu-latest
+    env:
+      # Unit tests don't start Electron; skip downloading it.
+      ELECTRON_SKIP_BINARY_DOWNLOAD: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @agentstudio/core build
+      - run: pnpm -r --if-present typecheck
+      - run: pnpm run test:dev
+      - run: pnpm -r --if-present test

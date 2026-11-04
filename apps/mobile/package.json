@@ -1,0 +1,48 @@
+{
+  "name": "@agentstudio/mobile",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "description": "AgentStudio mobile app (Expo / React Native; tested on the web target)",
+  "main": "index.ts",
+  "scripts": {
+    "start": "expo start",
+    "web": "expo start --web --port 18300 --localhost",
+    "build:web": "expo export -p web --output-dir web-build --clear",
+    "serve:web": "node scripts/serve-web.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p e2e-smoke/tsconfig.json",
+    "test": "vitest run",
+    "e2e:smoke": "pnpm build:web && playwright test -c e2e-smoke/playwright.config.ts"
+  },
+  "dependencies": {
+    "@expo/metro-runtime": "~58.0.16",
+    "@expo/vector-icons": "^15.1.1",
+    "@fontsource-variable/bricolage-grotesque": "5.3.0",
+    "@agentstudio/brand": "workspace:*",
+    "@agentstudio/core": "workspace:*",
+    "@react-navigation/bottom-tabs": "7.21.0",
+    "@react-navigation/native": "7.5.1",
+    "@react-navigation/native-stack": "7.21.0",
+    "expo": "58.0.22",
+    "expo-crypto": "~58.0.7",
+    "expo-linear-gradient": "~58.0.3",
+    "expo-secure-store": "~58.0.2",
+    "expo-status-bar": "~58.0.4",
+    "matrix-js-sdk": "45.0.0",
+    "qrcode": "1.5.4",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-native": "0.88.1",
+    "react-native-safe-area-context": "~5.10.1",
+    "react-native-screens": "~4.30.1",
+    "react-native-web": "~0.21.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@types/node": "26.6.6",
+    "@types/qrcode": "1.5.6",
+    "@types/react": "19.3.0",
+    "typescript": "7.0.2",
+    "vitest": "5.0.5"
+  }
+}

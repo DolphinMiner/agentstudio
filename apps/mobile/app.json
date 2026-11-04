@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "AgentStudio",
+    "slug": "agentstudio",
+    "version": "0.1.0",
+    "scheme": "agentstudio",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "bundleIdentifier": "dev.agentstudio.app",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "dev.agentstudio.app"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "name": "AgentStudio",
+      "shortName": "AgentStudio",
+      "themeColor": "#3247a8",
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-secure-store"
+    ],
+    "icon": "./assets/icon.png"
+  }
+}

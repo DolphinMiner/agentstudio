@@ -1,0 +1,52 @@
+# Dependencies
+node_modules/
+
+# Local dev stack: databases, Synapse, logs, generated configs and secrets
+.local/
+
+# Build output
+dist/
+out/
+build/
+*.tsbuildinfo
+server/bin/
+/server/agentstudio-*
+apps/mobile/web-build/
+
+# Expo / React Native
+.expo/
+apps/mobile/ios/
+apps/mobile/android/
+
+# Tests
+coverage/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+e2e-smoke/artifacts/
+apps/desktop/e2e-smoke/artifacts/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.key
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Editors and OS
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+
+# Claude Code (per-user)
+.claude/settings.local.json
+.claude/worktrees/

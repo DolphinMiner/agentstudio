@@ -1,0 +1,245 @@
+{
+ "source": "Grok Bot transcripts (ListGrokBotTranscriptEntries), recorded 2026-11-04 from a real account. Structure only: every free-text value is replaced by <field:length>, ids by \"id\", times by 0.",
+ "entries": [
+  {
+   "entry_kind": "send-message",
+   "body_omitted": false,
+   "body": {
+    "kind": "send-message",
+    "id": "id",
+    "message": {
+     "type": "text",
+     "content": "<content:12>"
+    },
+    "timestampMs": 0,
+    "requestId": "id"
+   }
+  },
+  {
+   "entry_kind": "message",
+   "body_omitted": false,
+   "body": {
+    "kind": "message",
+    "id": "id",
+    "role": "user",
+    "content": "<content:2>",
+    "isStreaming": false,
+    "timestampMs": 0,
+    "clientNonce": "<clientNonce:36>",
+    "requestId": "id"
+   }
+  },
+  {
+   "entry_kind": "send-message",
+   "body_omitted": false,
+   "body": {
+    "kind": "send-message",
+    "id": "id",
+    "message": {
+     "type": "text",
+     "content": "<content:153>"
+    },
+    "timestampMs": 0,
+    "requestId": "id"
+   }
+  },
+  {
+   "entry_kind": "send-message",
+   "body_omitted": false,
+   "body": {
+    "kind": "send-message",
+    "id": "id",
+    "message": {
+     "type": "text",
+     "content": "<content:59>"
+    },
+    "timestampMs": 0,
+    "requestId": "id"
+   }
+  },
+  {
+   "entry_kind": "message",
+   "body_omitted": false,
+   "body": {
+    "kind": "message",
+    "id": "id",
+    "role": "user",
+    "content": "<content:23>",
+    "richText": "<richText:108>",
+    "isStreaming": false,
+    "timestampMs": 0,
+    "clientNonce": "<clientNonce:36>",
+    "requestId": "id"
+   }
+  },
+  {
+   "entry_kind": "message",
+   "body_omitted": false,
+   "body": {
+    "kind": "message",
+    "id": "id",
+    "role": "user",
+    "content": "<content:16>",
+    "richText": "<richText:101>",
+    "isStreaming": false,
+    "timestampMs": 0,
+    "clientNonce": "<clientNonce:36>",
+    "requestId": "id"
+   }
+  },
+  {
+   "entry_kind": "send-message",
+   "body_omitted": false,
+   "body": {
+    "kind": "send-message",
+    "id": "id",
+    "message": {
+     "type": "widget",
+     "widget": {
+      "prompt": "<prompt:30>",
+      "options": [
+       {
+        "label": "<label:12>",
+        "value": "<value:11>",
+        "style": "primary"
+       },
+       {
+        "label": "<label:10>",
+        "value": "<value:7>"
+       }
+      ],
+      "allowCustom": true
+     }
+    },
+    "timestampMs": 0,
+    "requestId": "id",
+    "widgetSkipped": true
+   }
+  },
+  {
+   "entry_kind": "send-message",
+   "body_omitted": false,
+   "body": {
+    "kind": "send-message",
+    "id": "id",
+    "message": {
+     "type": "widget",
+     "widget": {
+      "prompt": "<prompt:18>",
+      "options": [
+       {
+        "label": "<label:6>",
+        "value": "<value:11>"
+       },
+       {
+        "label": "<label:7>",
+        "value": "<value:12>"
+       }
+      ],
+      "allowCustom": true
+     }
+    },
+    "timestampMs": 0,
+    "requestId": "id",
+    "widgetSkipped": true
+   }
+  },
+  {
+   "entry_kind": "send-message",
+   "body_omitted": false,
+   "body": {
+    "kind": "send-message",
+    "id": "id",
+    "message": {
+     "type": "widget",
+     "widget": {
+      "prompt": "<prompt:6>",
+      "options": [
+       {
+        "label": "<label:10>",
+        "value": "<value:13>",
+        "style": "primary"
+       },
+       {
+        "label": "<label:10>",
+        "value": "<value:13>"
+       },
+       {
+        "label": "<label:14>",
+        "value": "<value:13>"
+       },
+       {
+        "label": "<label:8>",
+        "value": "<value:12>"
+       }
+      ],
+      "allowCustom": true
+     }
+    },
+    "timestampMs": 0,
+    "requestId": "id",
+    "widgetSkipped": true
+   }
+  },
+  {
+   "entry_kind": "send-message",
+   "body_omitted": false,
+   "body": {
+    "kind": "send-message",
+    "id": "id",
+    "message": {
+     "type": "local-tool-permission",
+     "ask": {
+      "requestId": "id",
+      "action": "<action:11>",
+      "target": "<target:542>",
+      "machineId": "id",
+      "status": "always"
+     }
+    },
+    "timestampMs": 0,
+    "requestId": "id"
+   }
+  },
+  {
+   "entry_kind": "send-message",
+   "body_omitted": false,
+   "body": {
+    "kind": "send-message",
+    "id": "id",
+    "message": {
+     "type": "local-tool-permission",
+     "ask": {
+      "requestId": "id",
+      "action": "<action:11>",
+      "target": "<target:542>",
+      "machineId": "id",
+      "status": "always"
+     }
+    },
+    "timestampMs": 0,
+    "requestId": "id"
+   }
+  },
+  {
+   "entry_kind": "send-message",
+   "body_omitted": false,
+   "body": {
+    "kind": "send-message",
+    "id": "id",
+    "message": {
+     "type": "local-tool-permission",
+     "ask": {
+      "requestId": "id",
+      "action": "<action:11>",
+      "target": "<target:542>",
+      "machineId": "id",
+      "status": "always"
+     }
+    },
+    "timestampMs": 0,
+    "requestId": "id"
+   }
+  }
+ ]
+}

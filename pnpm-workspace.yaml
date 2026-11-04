@@ -1,0 +1,8 @@
+packages:
+  - packages/*
+  - apps/*
+  - e2e
+minimumReleaseAgeExclude:
+  - '@vitejs/plugin-react@6.2.1'
+allowBuilds:
+  electron: true
