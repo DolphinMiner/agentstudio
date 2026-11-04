@@ -1,0 +1,116 @@
+# Config for agentstudio-bridge-agents (mautrix bridgev2 / mxmain, mautrix-go v0.32.0).
+# Rendered by dev/stack.mjs into .local/bridges/agents.yaml. Dollar-brace placeholders come from .local/env.
+# Keys follow bridgev2/matrix/mxmain/example-config.yaml; any key not set here takes the
+# example default (mxmain merges this file with its built-in example in memory; we run with -n
+# so the rendered file is never rewritten).
+
+# AgentStudio Agent Protocol settings (server/internal/bridges/agents/example-config.yaml).
+network:
+    # Agent behind the "concierge" login flow.
+    concierge_url: "${AGENTSTUDIO_CONCIERGE_URL}"
+    # agentstudio-api for /internal/v1 calls (agents, approvals, tasks).
+    api_url: "${AGENTSTUDIO_SERVER_URL}"
+    # Bearer secret for /internal/v1 (outgoing) and /agentstudio/internal/v1 (incoming).
+    internal_secret: "${AGENTSTUDIO_INTERNAL_SECRET}"
+    # Agents post events to {public_url}/agentstudio/v0/callback/{key}/events.
+    public_url: "${AGENTS_BRIDGE_URL}"
+
+bridge:
+    command_prefix: '!agents'
+    # Spaces would show up as extra rooms in AgentStudio clients.
+    personal_filtering_spaces: false
+    private_chat_portal_meta: true
+    bridge_status_notices: errors
+    bridge_notices: false
+    kick_matrix_users: true
+    # Removing a connection deletes its chats, so nothing is left behind.
+    cleanup_on_logout:
+        enabled: true
+        manual:
+            private: delete
+            relayed: delete
+            shared_no_users: delete
+            shared_has_users: nothing
+        bad_credentials:
+            private: nothing
+            relayed: nothing
+            shared_no_users: nothing
+            shared_has_users: nothing
+    relay:
+        enabled: false
+    permissions:
+        "*": relay
+        "${MATRIX_SERVER_NAME}": user
+
+database:
+    type: postgres
+    uri: "${BRIDGE_AGENTS_DATABASE_URL}"
+    max_open_conns: 5
+    max_idle_conns: 1
+
+homeserver:
+    address: "${SYNAPSE_URL}"
+    domain: "${MATRIX_SERVER_NAME}"
+    software: standard
+    # agentstudio-api receives BridgeState posts (authenticated with this bridge's as_token).
+    status_endpoint: "${AGENTSTUDIO_SERVER_URL}/internal/v1/bridge-state"
+    message_send_checkpoint_endpoint:
+    async_media: false
+    websocket: false
+    ping_interval_seconds: 0
+    retry_limit: 4
+
+appservice:
+    address: "${AGENTS_BRIDGE_URL}"
+    hostname: 127.0.0.1
+    port: 18102
+    id: agents
+    bot:
+        username: agentsbot
+        displayname: Agents bridge bot
+        avatar: remove
+    ephemeral_events: true
+    async_transactions: false
+    as_token: "${AGENTS_AS_TOKEN}"
+    hs_token: "${AGENTS_HS_TOKEN}"
+    # Ghost localparts, see docs/matrix-events.md. Must match the registration's user namespace.
+    username_template: agents_{{.}}
+
+matrix:
+    message_status_events: false
+    delivery_receipts: false
+    message_error_notices: true
+    sync_direct_chat_list: true
+    federate_rooms: false
+
+provisioning:
+    # agentstudio-api proxies /_matrix/provision/v3/... with this secret (docs/api.md).
+    shared_secret: "${AGENTS_PROVISION_SECRET}"
+    allow_matrix_auth: false
+    debug_endpoints: false
+
+backfill:
+    enabled: true
+    max_initial_messages: 50
+    max_catchup_messages: 500
+    unread_hours_threshold: 720
+
+double_puppet:
+    servers: {}
+    allow_discovery: false
+    secrets: {}
+
+# No E2EE in v0.1 (docs/matrix-events.md). Binaries are built with -tags nocrypto.
+encryption:
+    allow: false
+    default: false
+    require: false
+
+env_config_prefix: null
+
+# stdout goes to .local/logs/agents.log via the stack manager.
+logging:
+    min_level: info  # debug logs HTTP request bodies (message content); keep info
+    writers:
+        - type: stdout
+          format: pretty

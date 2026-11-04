@@ -1,0 +1,25 @@
+{
+  "name": "agentstudio",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "packageManager": "pnpm@11.7.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev:up": "node dev/stack.mjs up",
+    "dev:down": "node dev/stack.mjs down",
+    "dev:status": "node dev/stack.mjs status",
+    "dev:reset": "node dev/stack.mjs reset",
+    "dev:restart": "node dev/stack.mjs restart",
+    "dev:logs": "node dev/stack.mjs logs",
+    "dev:env": "node dev/stack.mjs env",
+    "dev:desktop": "pnpm --filter @agentstudio/desktop dev",
+    "dev:mobile": "pnpm --filter @agentstudio/mobile web",
+    "test": "pnpm run test:dev && pnpm run test:go && pnpm -r --if-present test",
+    "test:dev": "node --test dev/stack.test.mjs",
+    "test:go": "cd server && go test -tags nocrypto ./...",
+    "test:e2e": "node dev/stack.mjs up && pnpm --filter @agentstudio/e2e e2e"
+  }
+}

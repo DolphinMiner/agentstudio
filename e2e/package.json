@@ -1,0 +1,20 @@
+{
+  "name": "@agentstudio/e2e",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "description": "End-to-end tests: desktop (Electron) and mobile web against the local stack",
+  "scripts": {
+    "e2e": "playwright test",
+    "test:desktop": "playwright test --project desktop",
+    "test:mobile": "playwright test --project mobile-web",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "report": "playwright show-report",
+    "media": "playwright test -c media/playwright.config.ts && node media/render.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@types/node": "26.6.6",
+    "typescript": "7.0.2"
+  }
+}

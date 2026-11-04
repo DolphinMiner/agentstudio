@@ -1,0 +1,17 @@
+# Appservice registration for agentstudio-bridge-demo. Rendered by dev/stack.mjs into
+# .local/synapse/registration-demo.yaml and loaded by Synapse (app_service_config_files).
+# Must match .local/bridges/demo.yaml (appservice.id, tokens, bot username, username_template).
+id: demo
+url: "${DEMO_BRIDGE_URL}"
+as_token: "${DEMO_AS_TOKEN}"
+hs_token: "${DEMO_HS_TOKEN}"
+sender_localpart: demobot
+rate_limited: false
+receive_ephemeral: true
+de.sorunome.msc2409.push_ephemeral: true
+namespaces:
+  users:
+    - regex: '^@demobot:agentstudio\.local$'
+      exclusive: true
+    - regex: '^@demo_.*:agentstudio\.local$'
+      exclusive: true

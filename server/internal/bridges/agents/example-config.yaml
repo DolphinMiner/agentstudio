@@ -1,0 +1,14 @@
+# AgentStudio Agent Protocol settings. Empty values fall back to the environment.
+
+# Base URL of the agent used by the "concierge" login flow ($AGENTSTUDIO_CONCIERGE_URL).
+concierge_url: ""
+# agentstudio-api base URL for /internal/v1 calls ($AGENTSTUDIO_SERVER_URL).
+api_url: ""
+# Shared secret for /internal/v1 and /agentstudio/internal/v1 ($AGENTSTUDIO_INTERNAL_SECRET).
+internal_secret: ""
+# Public base URL of this bridge; agents get {public_url}/agentstudio/v0/callback/{key} ($AGENTS_BRIDGE_URL).
+public_url: ""
+# agentstudio-agent-adapters, which fronts A2A and ACP agents ($AGENT_ADAPTERS_URL).
+adapters_url: ""
+# ACP agents users may pick, as a JSON array of {id, name, command, args} ($AGENTSTUDIO_ACP_AGENTS).
+acp_agents: ""

@@ -1,0 +1,6 @@
+.expo/
+web-build/
+dist/
+e2e-smoke/artifacts/
+e2e-smoke/test-results/
+expo-env.d.ts

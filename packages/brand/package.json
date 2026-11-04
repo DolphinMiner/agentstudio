@@ -1,0 +1,9 @@
+{
+  "name": "@agentstudio/brand",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Official logos and icons of the services AgentStudio connects to, used to identify them in the UI.",
+  "exports": {
+    "./assets/*": "./assets/*"
+  }
+}

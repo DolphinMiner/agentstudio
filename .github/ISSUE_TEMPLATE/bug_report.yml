@@ -1,0 +1,61 @@
+name: Bug report
+description: Something doesn't work as it should.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. **Security problems go to SECURITY.md, not here.**
+        Don't paste tokens, cookies, API keys or private messages. Settings → Diagnostics exports a report with those removed.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Connect …
+        2. Send …
+        3. See …
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Inbox and chat
+        - Approvals
+        - Ask an agent / drafts
+        - Notifications
+        - Connector: Grok Bot
+        - Connector: Muse
+        - Connector: ChatGPT Dots
+        - Connector: Cue
+        - Agents on the server (Concierge, A2A, ACP, endpoint)
+        - Local dev stack (dev:up, Synapse, Postgres)
+        - Mobile
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Commit or version
+      description: "`git rev-parse --short HEAD`"
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version and Mac
+      placeholder: macOS 26.1, Apple M3
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or diagnostics
+      description: The relevant part of `.local/logs/<service>.log`, or the exported diagnostics. Check it has no private content first.
+      render: text
